@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>God Eye View</title>
+  <link rel="stylesheet" href="./controls.css">
+</head>
+<body>
+  <main id="app">
+    <header class="topbar">
+      <div class="brand">◉ GOD EYE VIEW</div>
+      <div class="search">
+        <input id="address" placeholder="Rechercher un lieu…" autocomplete="off">
+        <button id="searchBtn">Rechercher</button>
+      </div>
+      <button id="locateBtn" title="Ma position">⌖</button>
+    </header>
+
+    <section class="workspace">
+      <aside class="panel">
+        <h2>Vue</h2>
+        <button class="mode active" data-mode="satellite">🛰️ Satellite</button>
+        <button class="mode" data-mode="street">🚶 Street View</button>
+        <div class="divider"></div>
+        <h2>Navigation</h2>
+        <div class="pad">
+          <button data-key="ArrowUp">▲</button>
+          <div><button data-key="ArrowLeft">◀</button><button data-key="ArrowDown">▼</button><button data-key="ArrowRight">▶</button></div>
+        </div>
+        <label>Zoom <input id="zoom" type="range" min="1" max="20" value="15"></label>
+        <div class="hint">Clique sur la carte pour changer de position.</div>
+      </aside>
+
+      <section class="scene">
+        <div id="satellite" class="view active"></div>
+        <iframe id="street" class="view street" title="Street View" loading="lazy"></iframe>
+        <div id="crosshair">＋</div>
+        <div id="coords">—</div>
+        <div id="heading">0° N</div>
+        <div id="status">Prêt</div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="./gevActions.js"></script>
+</body>
+</html>
